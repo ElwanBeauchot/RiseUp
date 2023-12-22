@@ -55,13 +55,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const HomePageWidget(),
         ),
         FFRoute(
-          name: 'TaskPage',
-          path: '/taskPage',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'TaskPage')
-              : const TaskPageWidget(),
-        ),
-        FFRoute(
           name: 'SleepPageTrack',
           path: '/sleepPageTrack',
           builder: (context, params) => const SleepPageTrackWidget(),
@@ -72,6 +65,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'SleepPageStats')
               : const SleepPageStatsWidget(),
+        ),
+        FFRoute(
+          name: 'TaskPage',
+          path: '/taskPage',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'TaskPage')
+              : const TaskPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

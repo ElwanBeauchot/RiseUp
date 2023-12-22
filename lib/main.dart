@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
-import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
 import 'flutter_flow/nav/nav.dart';
@@ -11,8 +10,6 @@ import 'index.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   usePathUrlStrategy();
-
-  await FlutterFlowTheme.initialize();
 
   runApp(const MyApp());
 }
@@ -30,7 +27,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Locale? _locale;
-  ThemeMode _themeMode = FlutterFlowTheme.themeMode;
+  ThemeMode _themeMode = ThemeMode.system;
 
   late AppStateNotifier _appStateNotifier;
   late GoRouter _router;
@@ -49,7 +46,6 @@ class _MyAppState extends State<MyApp> {
 
   void setThemeMode(ThemeMode mode) => setState(() {
         _themeMode = mode;
-        FlutterFlowTheme.saveThemeMode(mode);
       });
 
   @override
@@ -66,11 +62,9 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: const [Locale('en', '')],
       theme: ThemeData(
         brightness: Brightness.light,
-        scrollbarTheme: const ScrollbarThemeData(),
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        scrollbarTheme: const ScrollbarThemeData(),
+        scrollbarTheme: ScrollbarThemeData(
+          thumbVisibility: MaterialStateProperty.all(false),
+        ),
       ),
       themeMode: _themeMode,
       routerConfig: _router,
@@ -104,8 +98,8 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'HomePage': const HomePageWidget(),
-      'TaskPage': const TaskPageWidget(),
       'SleepPageStats': const SleepPageStatsWidget(),
+      'TaskPage': const TaskPageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -117,9 +111,9 @@ class _NavBarPageState extends State<NavBarPage> {
           _currentPage = null;
           _currentPageName = tabs.keys.toList()[i];
         }),
-        backgroundColor: Colors.white,
-        selectedItemColor: FlutterFlowTheme.of(context).primary,
-        unselectedItemColor: const Color(0x8A000000),
+        backgroundColor: const Color(0xFF4C046D),
+        selectedItemColor: Colors.white,
+        unselectedItemColor: const Color(0x7EFFFFFF),
         showSelectedLabels: false,
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
@@ -131,21 +125,9 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             activeIcon: Icon(
               Icons.home,
-              size: 22.0,
+              size: 24.0,
             ),
             label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.event_note_rounded,
-              size: 20.0,
-            ),
-            activeIcon: Icon(
-              Icons.event_note_rounded,
-              size: 25.0,
-            ),
-            label: 'Task',
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -155,6 +137,18 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             activeIcon: Icon(
               Icons.mode_night_rounded,
+              size: 26.0,
+            ),
+            label: 'Sleep',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.date_range_outlined,
+              size: 24.0,
+            ),
+            activeIcon: Icon(
+              Icons.date_range_rounded,
               size: 26.0,
             ),
             label: 'Home',

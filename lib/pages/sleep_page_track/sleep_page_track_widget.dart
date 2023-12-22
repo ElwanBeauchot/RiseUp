@@ -78,7 +78,7 @@ class _SleepPageTrackWidgetState extends State<SleepPageTrackWidget> {
                       onPressed: () {
                         print('Button pressed ...');
                       },
-                      text: '22:30',
+                      text: dateTimeFormat('Hm', getCurrentTimestamp),
                       options: FFButtonOptions(
                         width: 200.0,
                         height: 200.0,
@@ -86,7 +86,7 @@ class _SleepPageTrackWidgetState extends State<SleepPageTrackWidget> {
                             24.0, 0.0, 24.0, 0.0),
                         iconPadding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: const Color(0xE32C025C),
+                        color: const Color(0xC12C025C),
                         textStyle:
                             FlutterFlowTheme.of(context).titleMedium.override(
                                   fontFamily: 'Readex Pro',
@@ -94,7 +94,7 @@ class _SleepPageTrackWidgetState extends State<SleepPageTrackWidget> {
                                 ),
                         elevation: 3.0,
                         borderSide: const BorderSide(
-                          color: Colors.transparent,
+                          color: Color(0xFFFF008C),
                           width: 1.0,
                         ),
                         borderRadius: const BorderRadius.only(
@@ -161,7 +161,7 @@ class _SleepPageTrackWidgetState extends State<SleepPageTrackWidget> {
                       child: Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Text(
-                          '08:45',
+                          '08:34',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',

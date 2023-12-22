@@ -77,7 +77,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: MediaQuery.sizeOf(context).height * 1.0,
                           fit: BoxFit.fitHeight,
-                          alignment: const Alignment(1.0, -1.0),
+                          alignment: const Alignment(1.0, 0.0),
                         ),
                       ),
                     ),

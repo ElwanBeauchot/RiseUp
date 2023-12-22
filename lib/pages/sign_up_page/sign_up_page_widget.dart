@@ -71,13 +71,15 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
               alignment: const AlignmentDirectional(0.0, 0.0),
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(0.0, -1.0),
+                  alignment: const AlignmentDirectional(1.0, 0.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
                       'assets/images/vecteezy_abstract-purple-fluid-wave-background_.jpg',
                       width: MediaQuery.sizeOf(context).width * 1.0,
-                      fit: BoxFit.fill,
+                      height: MediaQuery.sizeOf(context).height * 1.0,
+                      fit: BoxFit.fitHeight,
+                      alignment: const Alignment(1.0, 0.0),
                     ),
                   ),
                 ),
@@ -94,17 +96,6 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                             fontSize: 50.0,
                             fontWeight: FontWeight.w800,
                           ),
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(0.0, 1.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.asset(
-                      'assets/images/vecteezy_abstract-purple-fluid-wave-background_.jpg',
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      fit: BoxFit.fill,
                     ),
                   ),
                 ),
