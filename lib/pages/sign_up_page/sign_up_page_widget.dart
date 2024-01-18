@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'sign_up_page_model.dart';
 export 'sign_up_page_model.dart';
 
@@ -423,7 +424,23 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                   0.0, 60.0, 0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  context.pushNamed('HomePage');
+                                  context.pushNamed('SignInPage');
+                                  if (_model.textController1 != null){
+                                    if (_model.textController2 != null){
+                                      if (_model.textController4 == _model.textController3){
+
+                                        FirebaseFirestore.instance.collection('Users').add({
+                                          // ignore: equal_keys_in_map
+                                          'username': _model.textController1?.value.text,                                    'username': _model.textController1,
+                                          'email': _model.textController2?.value.text,
+                                          'pass': _model.textController3?.value.text,
+
+                                        });
+                                      }
+                                    }
+                                  }else{
+                                    context.pushNamed('SignUpPage');
+                                  }
                                 },
                                 text: 'Sign Up',
                                 icon: const FaIcon(
